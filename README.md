@@ -11,6 +11,14 @@ This is my implementation of the Cloud Resume Challenge in AWS. The Cloud Resume
 *   **Backend API**: An API Gateway triggers a Lambda function to handle logic.
 *   **Database**: Amazon DynamoDB is used to store and retrieve the visitor count.
 
+## Tech Stack
+*   S3
+*   AWS CloudFront
+*   Certificate Manager
+*   AWS Lambda
+*   Dynamo DB
+*   GitHub Actions
+
 ## Key Skills Demonstrated
 *   **Infrastructure as Code (IaC)**: Provisioning resources using [Insert your tool, e.g., SAM, Terraform, or CDK].
 *   **CI/CD Pipeline**: Automating code deployment using GitHub Actions, ensuring that updates to the repository are automatically pushed to the production environment.
