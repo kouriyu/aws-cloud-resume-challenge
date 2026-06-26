@@ -1,0 +1,279 @@
+/* ============================================================
+   Dilan Pathamavong — Résumé
+   Visual system: "infrastructure ledger"
+   - IBM Plex Sans for reading
+   - IBM Plex Mono for the record: dates, links, tags, labels
+   - Deep teal accent (not terminal green), hairline rules,
+     ledger-aligned dates down the right edge.
+   ============================================================ */
+
+:root {
+  --paper:      #fcfcfb;
+  --desk:       #f3f4f3;
+  --ink:        #16181d;
+  --read:       #353b44;
+  --slate:      #4a525e;
+  --mist:       #6e757f;
+  --line:       #e6e8ea;
+  --accent:     #6f2a7a;
+  --accent-ink: #6f1598;
+  --chip-bg:    rgba(212, 48, 124, 0.05);
+  --chip-line:  rgba(162, 0, 255, 0.22);
+
+  --sans: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--desk);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  padding: clamp(1rem, 4vw, 3rem) 1rem;
+}
+
+/* ---- The sheet ---- */
+.resume {
+  max-width: 800px;
+  margin: 0 auto;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  box-shadow: 0 1px 2px rgba(20, 24, 33, 0.04),
+              0 18px 40px -28px rgba(20, 24, 33, 0.28);
+  padding: clamp(2rem, 5vw, 3.4rem) clamp(1.5rem, 5vw, 3.4rem);
+}
+
+/* ---- Masthead ---- */
+.masthead { margin-bottom: 0.8rem; }
+
+.masthead__name {
+  margin: 0;
+  font-size: clamp(2rem, 6vw, 2.7rem);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.02;
+  color: var(--ink);
+}
+
+.masthead__rule {
+  width: 54px;
+  height: 3px;
+  background: var(--accent);
+  margin: 0.85rem 0 1.05rem;
+}
+
+.masthead__contact,
+.masthead__links {
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  color: var(--slate);
+  letter-spacing: 0.005em;
+  line-height: 1.7;
+  overflow-wrap: break-word;
+}
+.masthead__links { margin-top: 0.15rem; }
+
+.masthead__contact .sep,
+.masthead__links .sep {
+  color: var(--mist);
+  margin: 0 0.5rem;
+}
+
+.masthead a {
+  color: var(--slate);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+.masthead__links a { color: var(--accent); }
+.masthead a:hover { color: var(--accent-ink); border-bottom-color: var(--chip-line); }
+
+/* ---- Section ---- */
+.section { margin-top: 1.7rem; }
+
+.section__label {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin: 0 0 1rem;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--accent);
+}
+.section__label::after {
+  content: "";
+  flex: 1 1 auto;
+  height: 1px;
+  background: var(--line);
+}
+
+.section__body {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+/* ---- Entry ---- */
+.entry__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.5rem 1.25rem;
+  flex-wrap: wrap;
+}
+
+.entry__title {
+  font-weight: 600;
+  font-size: 1.02rem;
+  color: var(--ink);
+  letter-spacing: -0.005em;
+}
+
+.entry__meta {
+  font-family: var(--mono);
+  font-size: 0.76rem;
+  color: var(--mist);
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+.entry__meta a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid var(--chip-line);
+  transition: color 0.15s ease;
+}
+.entry__meta a:hover { color: var(--accent-ink); }
+
+.entry__sub {
+  margin: 0.2rem 0 0;
+  font-size: 0.92rem;
+  color: var(--slate);
+}
+
+/* ---- Bullets ---- */
+.bullets {
+  margin: 0.55rem 0 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.42rem;
+}
+.bullets li {
+  position: relative;
+  padding-left: 1.15rem;
+  font-size: 0.93rem;
+  line-height: 1.55;
+  color: var(--read);
+}
+.bullets li::before {
+  content: "";
+  position: absolute;
+  left: 0.1rem;
+  top: 0.62em;
+  width: 5px;
+  height: 5px;
+  background: var(--accent);
+  border-radius: 1px;
+  transform: rotate(45deg);
+}
+
+/* ---- Skills ---- */
+.skill {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.skill__label {
+  flex: 0 0 auto;
+  min-width: 116px;
+  font-family: var(--mono);
+  font-size: 0.74rem;
+  font-weight: 500;
+  color: var(--slate);
+  letter-spacing: 0.01em;
+}
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  flex: 1 1 240px;
+}
+.chip {
+  font-family: var(--mono);
+  font-size: 0.73rem;
+  color: var(--accent-ink);
+  background: var(--chip-bg);
+  border: 1px solid var(--chip-line);
+  border-radius: 3px;
+  padding: 0.2rem 0.5rem;
+  letter-spacing: 0.005em;
+  white-space: nowrap;
+}
+.entry__tags { margin-top: 0.45rem; }
+
+/* ---- Focus ---- */
+a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* ---- Entrance (web only, motion-safe) ---- */
+@media (prefers-reduced-motion: no-preference) {
+  .masthead,
+  .section { animation: rise 0.5s ease both; }
+  .section:nth-of-type(1) { animation-delay: 0.05s; }
+  .section:nth-of-type(2) { animation-delay: 0.10s; }
+  .section:nth-of-type(3) { animation-delay: 0.15s; }
+  .section:nth-of-type(4) { animation-delay: 0.20s; }
+  .section:nth-of-type(5) { animation-delay: 0.25s; }
+  .section:nth-of-type(6) { animation-delay: 0.30s; }
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 540px) {
+  .skill__label { min-width: 100%; }
+  .entry__meta { white-space: normal; }
+}
+
+/* ---- Print / PDF export ---- */
+@media print {
+  body {
+    background: #fff;
+    padding: 0;
+    font-size: 11pt;
+  }
+  .resume {
+    max-width: none;
+    margin: 0;
+    border: none;
+    box-shadow: none;
+    padding: 0.5in 0.6in;
+  }
+  .masthead,
+  .section { animation: none; }
+  .section { margin-top: 1.25rem; break-inside: avoid; }
+  .entry { break-inside: avoid; }
+  a { color: inherit; }
+  .masthead__links a,
+  .entry__meta a { color: var(--accent-ink); }
+  * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
